@@ -6,16 +6,34 @@
 	<script type="text/javascript">
 		function loadData(){
 			// crear una peticion
-			// procesar la peticion
-			// modificar contenido html
+			let xhr = new XMLHttpRequest();
+			xhr.open("GET", "https://gitlab.com/panch2203/proyectojson/index.json");
+
+			xhr.onreadystatechange = function(){
+				console.log(this.readyState, this.status, this.statusText);
+			}
+			// procesar la peticion checar si mi info ya llego y asi cambiar el texto
+			xhr.onload = function(){
+				if(this.readyState === 4 && this.status ===200){
+					//cambiar texto
+					console.log("Cambiando texto");
+					//esconder el boton
+				}
+				else{
+					//la informacion no llego
+					alert("ERROR: " + this.status); //imprime el tipo de error
+				}
+			}
 			// enviar peticion
+			xhr.send();
+
 		}
 	</script>
 </head>
 <body>
 	<h1>JSON y AJAX</h1>
 	<h3>Permitir que AJAX modifique el contenido</h3>	
-	<button id="btn" type="button" onclick="loadDatda()">Mostrar info sin recargar la pantalla</button>	
+	<button id="btn" type="button" onclick="loadData()">Mostrar info sin recargar la pantalla</button>	
 
 	<div id="loaded-info"></div>	
 </body>
