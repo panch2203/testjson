@@ -6,17 +6,25 @@
 	<script type="text/javascript">
 		function loadData(){
 			// crear una peticion
-			let xhr = new XMLHttpRequest();
-			xhr.open("GET", "https://gitlab.com/panch2203/proyectojson/index.json");
+			let xhr = new XMLHttpRequest();			
 
 			xhr.onreadystatechange = function(){
 				console.log(this.readyState, this.status, this.statusText);
 			}
+			xhr.open("GET", "https://panch2203.github.io/testjson/index.json");
+
 			// procesar la peticion checar si mi info ya llego y asi cambiar el texto
 			xhr.onload = function(){
 				if(this.readyState === 4 && this.status ===200){
 					//cambiar texto
-					console.log("Cambiando texto");
+					let data = JSON.parse(this.responseText);
+					console.log(data);
+					let html = '';
+					data.forEach(function(pig) {
+						html += '<p>'
+						html += pig.nombre + ' ' + pig.apellido;
+						html += '</p>'
+					})
 					//esconder el boton
 				}
 				else{

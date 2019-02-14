@@ -1,4 +1,14 @@
-{
-	"nombre": "x",
-	"apellido": "y" 
-}
+[
+	{
+		"nombre": "x",
+		"apellido": "y" 
+	},
+	{
+		"nombre": "kevin",
+		"apellido": "barrera" 
+	},
+	{
+		"nombre": "gera",
+		"apellido": "flores" 
+	}
+]
